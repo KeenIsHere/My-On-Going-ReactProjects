@@ -1,0 +1,166 @@
+:root {
+  --primary: #646cff;
+  --error: #ff4444;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.ar-container {
+  position: relative;
+  width: 100%;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.camera-feed {
+  width: 100%;
+  display: block;
+}
+
+.glasses-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.fps-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.capture-btn {
+  margin: 1rem auto;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.capture-btn:hover {
+  background: #535bf2;
+  transform: translateY(-2px);
+}
+
+.capture-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.snapshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.snapshot {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.snapshot:hover {
+  transform: scale(1.05);
+}
+
+.status-loading, .status-error {
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+}
+
+.status-loading {
+  background: #f8f9fa;
+}
+
+.status-error {
+  background: #ffeeee;
+  color: var(--error);
+}
+
+.spinner {
+  border: 4px solid rgba(0,0,0,0.1);
+  border-left-color: var(--primary);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* Snapshot Modal */
+.snapshot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.snapshot-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid white;
+}
+
+/* Error Fallback */
+.error-fallback {
+  padding: 2rem;
+  text-align: center;
+  background: #ffebee;
+  border-radius: 8px;
+  margin: 2rem;
+}
+
+/* Snapshot Items */
+.snapshot-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.snapshot-item:hover {
+  transform: scale(1.05);
+}
+
+.delete-snapshot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255,0,0,0.7);
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: white;
+  cursor: pointer;
+}

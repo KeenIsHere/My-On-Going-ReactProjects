@@ -1,0 +1,21 @@
+/* Add these new styles to your existing CSS */
+.option:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.correct {
+  animation: pulse 0.5s ease-in-out;
+  background: #4caf50 !important;
+}
+
+.wrong {
+  animation: pulse 0.5s ease-in-out;
+  background: #f44336 !important;
+}
